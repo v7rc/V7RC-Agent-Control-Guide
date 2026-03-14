@@ -74,8 +74,15 @@ Agents should prefer the following control order:
 Current example profiles:
 - mecanum_basic
 - tank_basic
-- quadruped_basic
-- humanoid_basic
+
+Note:
+- The `mecanum_basic` example profile uses semantic control channels:
+  - C1 = left/right movement
+  - C2 = forward/backward movement
+  - C4 = turning
+- The `tank_basic` example profile uses semantic tank-drive channels:
+  - C1 = left track or left drive
+  - C2 = right track or right drive
 
 ## Important note
 

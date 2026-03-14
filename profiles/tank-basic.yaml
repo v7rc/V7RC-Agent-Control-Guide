@@ -1,0 +1,141 @@
+profile_name: tank_basic
+profile_version: 1.0.0
+
+robot:
+  robot_name: V7RC Tank Robot
+  robot_type: tank_car
+  transport: BLE
+  firmware_compatibility: ">=1.0.0"
+
+protocol:
+  supported_protocols:
+    - CMD
+    - SRT
+    - SRV
+    - LED
+  preferred_control_order:
+    - CMD
+    - SRT
+    - SRV
+    - SS8
+
+motion:
+  drive_type: differential_tank_semantic_channels
+  neutral_value: 1500
+  safe_range: [1200, 1800]
+  hard_range: [1000, 2000]
+  channels:
+    C1: left_drive
+    C2: right_drive
+    C3: reserved
+    C4: reserved
+  direction_rules:
+    C1:
+      gt_1500: left_forward
+      lt_1500: left_backward
+      eq_1500: neutral
+    C2:
+      gt_1500: right_forward
+      lt_1500: right_backward
+      eq_1500: neutral
+  notes:
+    - This profile uses semantic tank-drive channels.
+    - Channel3 and Channel4 are reserved unless firmware defines other functions.
+    - Verify actual robot behavior on hardware before autonomous use.
+
+led:
+  groups:
+    LED: front_status_leds
+    LE2: rear_status_leds
+  patterns:
+    ready_led:
+      method: LED
+      value: "LED0F0A0F0A0F0A0F0A#"
+    waiting_led:
+      method: LED
+      value: "LED00F500F500F500F5#"
+    error_led:
+      method: LED
+      value: "LEDF00AF00AF00AF00A#"
+
+custom_commands:
+  STOP:
+    risk: low
+    notes: stop all motion immediately if supported by firmware
+  RESET:
+    risk: medium
+    notes: reset device state
+  HOME:
+    risk: low
+    notes: return to neutral or home state if supported
+
+intents:
+  stop:
+    preferred:
+      method: CMD
+      value: "CMDSTOP           #"
+    fallback:
+      method: SRT
+      value: "SRT1500150015001500#"
+    risk: low
+
+  neutral_motion:
+    preferred:
+      method: SRT
+      value: "SRT1500150015001500#"
+    risk: low
+
+  move_forward_slow:
+    preferred:
+      method: SRT
+      value: "SRT1600160015001500#"
+    risk: medium
+
+  move_forward:
+    preferred:
+      method: SRT
+      value: "SRT1700170015001500#"
+    risk: medium
+
+  move_backward:
+    preferred:
+      method: SRT
+      value: "SRT1400140015001500#"
+    risk: medium
+
+  turn_left:
+    preferred:
+      method: SRT
+      value: "SRT1400160015001500#"
+    risk: medium
+
+  turn_right:
+    preferred:
+      method: SRT
+      value: "SRT1600140015001500#"
+    risk: medium
+
+  arc_left_forward:
+    preferred:
+      method: SRT
+      value: "SRT1550165015001500#"
+    risk: medium
+
+  arc_right_forward:
+    preferred:
+      method: SRT
+      value: "SRT1650155015001500#"
+    risk: medium
+
+safety:
+  first_connect_action:
+    method: SRT
+    value: "SRT1500150015001500#"
+  emergency_action:
+    method: SRT
+    value: "SRT1500150015001500#"
+  rules:
+    - Do not exceed hard_range values.
+    - Prefer CMD when the firmware explicitly supports it.
+    - If command meaning is ambiguous, fall back to neutral_motion.
+    - Do not assume Channel3 or Channel4 has a valid function unless documented.

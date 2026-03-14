@@ -1,0 +1,25 @@
+V7RC-Agent-Control-Guide/
+├─ README.md
+├─ LICENSE
+├─ .gitignore
+├─ docs/
+│  ├─ overview.md
+│  ├─ protocol-reference.md
+│  ├─ safety-rules.md
+│  ├─ intent-dictionary.md
+│  ├─ integration-openclaw.md
+│  └─ robot-profiles/
+│     ├─ template.md
+│     ├─ mecanum-basic.md
+│     └─ tank-basic.md
+├─ schemas/
+│  └─ robot-profile.schema.json
+├─ profiles/
+│  ├─ mecanum-basic.yaml
+│  └─ tank-basic.yaml
+├─ examples/
+│  ├─ prompt-openclaw-system.md
+│  ├─ command-examples.md
+│  └─ session-example.md
+└─ assets/
+   └─ repo-structure.txt
