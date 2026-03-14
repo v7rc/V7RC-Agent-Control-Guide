@@ -2,102 +2,58 @@
 
 This repository provides a structured control guide for AI agents that connect to robots developed with the V7RC ecosystem.
 
-It is designed for:
-- OpenClaw agents
-- LLM-based robot controllers
-- custom orchestration systems
-- developers who need a safe and reusable robot control specification
+It extends the original V7RC protocol with:
+- robot hardware mapping
+- motion intent definitions
+- safety rules for AI agents
+- OpenClaw integration guidance
+- machine-readable robot profiles
 
-## Why this repository exists
+## Language Versions
 
-The original V7RC protocol defines the low-level command format used to control V7RC-compatible devices.
-However, AI agents usually need more than raw protocol syntax.
+| Language | File |
+|---|---|
+| English | `README.md` |
+| 繁體中文 | `README.zh-TW.md` |
+| 日本語 | `README.ja.md` |
+| ภาษาไทย | `README.th.md` |
+| Bahasa Melayu | `README.ms.md` |
 
-An agent also needs:
-- robot type information
-- channel-to-hardware mapping
-- preferred control priority
-- safe operating ranges
-- fallback behavior
-- high-level intent to command mapping
+## Repository Structure
 
-This repository adds that missing layer.
+- `docs/` human-readable documentation by language
+- `profiles/` machine-readable robot profiles in YAML
+- `schemas/` JSON Schema for validation
+- `examples/` prompt and command examples
+- `assets/` diagrams and repo structure notes
 
-## Repository structure
+## Design Goals
 
-- `docs/overview.md`  
-  Overall design concept and usage model.
+1. Keep the raw V7RC protocol separate from robot-specific mapping.
+2. Give AI agents a deterministic, safety-first control layer.
+3. Support multiple robot types and multiple countries.
+4. Make documentation readable for humans and parseable for software.
 
-- `docs/protocol-reference.md`  
-  Agent-friendly summary of the V7RC protocol.
+## Included Profiles
 
-- `docs/safety-rules.md`  
-  Safety constraints that every agent should follow.
+- `mecanum_basic`
+- `tank_basic`
 
-- `docs/intent-dictionary.md`  
-  Standard action intents and how they should map to protocol commands.
+## Recommended Reading Order
 
-- `docs/integration-openclaw.md`  
-  Suggested method for integrating these documents with OpenClaw.
+1. `docs/en/overview.md`
+2. `docs/en/protocol-reference.md`
+3. `docs/en/safety-rules.md`
+4. `docs/en/intent-dictionary.md`
+5. `docs/en/integration-openclaw.md`
+6. the relevant profile in `docs/en/robot-profiles/`
+7. the corresponding YAML file in `profiles/`
 
-- `docs/robot-profiles/`  
-  Human-readable robot-specific control guides.
+## Source Protocol
 
-- `profiles/`  
-  Machine-readable robot profiles in YAML.
-
-- `schemas/`  
-  JSON schema definitions for validating profile files.
-
-- `examples/`  
-  Ready-to-use prompt and command examples.
-
-## Design goals
-
-1. Keep the original V7RC protocol intact.
-2. Add an agent-friendly abstraction layer.
-3. Separate raw protocol from robot-specific hardware mapping.
-4. Prefer safe, deterministic, inspectable behaviors.
-5. Make it easy to support multiple robot types.
-
-## Recommended control hierarchy
-
-Agents should prefer the following control order:
-
-1. High-level custom command (`CMD`) if explicitly supported by the device firmware
-2. Robot-specific mapped motion control (`SRT`, `SRV`, `SR2`)
-3. Simplified fallback control (`SS8`) if precision is not required
-4. Stop / neutral fallback when state is uncertain
-
-## Included robot profiles
-
-Current example profiles:
-- mecanum_basic
-- tank_basic
-
-Note:
-- The `mecanum_basic` example profile uses semantic control channels:
-  - C1 = left/right movement
-  - C2 = forward/backward movement
-  - C4 = turning
-- The `tank_basic` example profile uses semantic tank-drive channels:
-  - C1 = left track or left drive
-  - C2 = right track or right drive
-
-## Important note
-
-This repository does not replace the official V7RC protocol reference.
-It extends it with:
-- safety guidance
-- intent modeling
-- profile normalization
-- AI agent usage conventions
-
-## Source protocol
-
-Official V7RC protocol reference:
-- https://github.com/v7rc/V7RC-Protocol/blob/main/protocol.md
+Official V7RC Protocol:
+- https://github.com/v7rc/V7RC-Protocol
 
 ## License
 
-See `LICENSE`.
+MIT

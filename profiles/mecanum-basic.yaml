@@ -1,5 +1,5 @@
 profile_name: mecanum_basic
-profile_version: 1.0.1
+profile_version: 1.1.0
 
 robot:
   robot_name: V7RC Mecanum Robot
@@ -45,7 +45,6 @@ motion:
   notes:
     - This profile uses semantic motion channels instead of per-wheel mapping.
     - Channel3 is reserved unless firmware defines another function.
-    - Verify actual robot behavior on hardware before autonomous use.
 
 led:
   groups:

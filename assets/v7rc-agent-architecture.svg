@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<style>
+  .title{font:700 34px Arial, sans-serif; fill:#1f2937}
+  .sub{font:500 18px Arial, sans-serif; fill:#4b5563}
+  .box{fill:#ffffff; stroke:#334155; stroke-width:2; rx:18; ry:18}
+  .label{font:700 22px Arial, sans-serif; fill:#0f172a}
+  .text{font:500 16px Arial, sans-serif; fill:#334155}
+  .small{font:500 14px Arial, sans-serif; fill:#475569}
+  .arrow{stroke:#2563eb; stroke-width:4; fill:none; marker-end:url(#arrow)}
+  .dashed{stroke:#64748b; stroke-width:3; fill:none; stroke-dasharray:10 8; marker-end:url(#arrowGray)}
+  .group{fill:#eff6ff; stroke:#93c5fd; stroke-width:2; rx:22; ry:22}
+  .store{fill:#f8fafc; stroke:#64748b; stroke-width:2; rx:18; ry:18}
+</style>
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+    <path d="M0,0 L12,6 L0,12 z" fill="#2563eb"/>
+  </marker>
+  <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+    <path d="M0,0 L12,6 L0,12 z" fill="#64748b"/>
+  </marker>
+</defs>
+
+<text x="800" y="55" text-anchor="middle" class="title">V7RC AI Robot Control Architecture</text>
+<text x="800" y="85" text-anchor="middle" class="sub">OpenClaw + V7RC Agent Control Guide + BLE Robot Runtime</text>
+
+<rect x="70" y="130" width="260" height="110" class="box"/>
+<text x="200" y="172" text-anchor="middle" class="label">User / Operator</text>
+<text x="200" y="202" text-anchor="middle" class="text">App, Web UI, Voice UI</text>
+<text x="200" y="226" text-anchor="middle" class="small">Mission request, chat, buttons</text>
+
+<rect x="430" y="120" width="310" height="140" class="group"/>
+<text x="585" y="158" text-anchor="middle" class="label">OpenClaw / LLM Agent</text>
+<text x="585" y="188" text-anchor="middle" class="text">Intent resolution</text>
+<text x="585" y="212" text-anchor="middle" class="text">Safety-aware command planning</text>
+<text x="585" y="236" text-anchor="middle" class="small">No undocumented commands</text>
+
+<rect x="840" y="110" width="360" height="170" class="store"/>
+<text x="1020" y="148" text-anchor="middle" class="label">V7RC Agent Control Guide Repo</text>
+<text x="1020" y="180" text-anchor="middle" class="text">docs/en, zh-TW, ja, th, ms</text>
+<text x="1020" y="205" text-anchor="middle" class="text">profiles/*.yaml</text>
+<text x="1020" y="230" text-anchor="middle" class="text">schemas + examples</text>
+<text x="1020" y="255" text-anchor="middle" class="small">Human docs + machine-readable profiles</text>
+
+<rect x="460" y="360" width="280" height="130" class="box"/>
+<text x="600" y="400" text-anchor="middle" class="label">Runtime / App Server</text>
+<text x="600" y="430" text-anchor="middle" class="text">Command validation</text>
+<text x="600" y="455" text-anchor="middle" class="text">Session state / orchestration</text>
+
+<rect x="870" y="360" width="300" height="130" class="box"/>
+<text x="1020" y="400" text-anchor="middle" class="label">Transport Layer</text>
+<text x="1020" y="430" text-anchor="middle" class="text">BLE / UART / Wi-Fi / MQTT</text>
+<text x="1020" y="455" text-anchor="middle" class="small">Send command packets to robot</text>
+
+<rect x="1240" y="345" width="290" height="160" class="group"/>
+<text x="1385" y="385" text-anchor="middle" class="label">V7RC Robot Firmware</text>
+<text x="1385" y="416" text-anchor="middle" class="text">Protocol parser</text>
+<text x="1385" y="441" text-anchor="middle" class="text">CMD / SRT / SRV / LED</text>
+<text x="1385" y="466" text-anchor="middle" class="text">Safety checks / mapping</text>
+
+<rect x="1220" y="620" width="330" height="170" class="box"/>
+<text x="1385" y="662" text-anchor="middle" class="label">Robot Hardware</text>
+<text x="1385" y="694" text-anchor="middle" class="text">Motors, servos, LEDs</text>
+<text x="1385" y="718" text-anchor="middle" class="text">IMU, sensors, battery</text>
+<text x="1385" y="742" text-anchor="middle" class="small">Physical response and feedback</text>
+
+<rect x="840" y="625" width="300" height="160" class="store"/>
+<text x="990" y="665" text-anchor="middle" class="label">Telemetry / Feedback</text>
+<text x="990" y="698" text-anchor="middle" class="text">State, sensor data, errors</text>
+<text x="990" y="722" text-anchor="middle" class="text">Optional acknowledgement</text>
+<text x="990" y="746" text-anchor="middle" class="small">Can be returned to runtime and agent</text>
+
+<path d="M330 185 L430 185" class="arrow"/>
+<path d="M740 185 L840 185" class="arrow"/>
+<path d="M600 260 L600 360" class="arrow"/>
+<path d="M740 425 L870 425" class="arrow"/>
+<path d="M1170 425 L1240 425" class="arrow"/>
+<path d="M1385 505 L1385 620" class="arrow"/>
+<path d="M1220 705 L1140 705" class="dashed"/>
+<path d="M840 705 L600 490" class="dashed"/>
+<path d="M910 280 L660 360" class="dashed"/>
+
+<text x="372" y="170" class="small">user request</text>
+<text x="772" y="170" class="small">read rules and profiles</text>
+<text x="615" y="314" class="small">planned command</text>
+<text x="782" y="412" class="small">validated packet</text>
+<text x="1190" y="412" class="small">transport send</text>
+<text x="1400" y="560" class="small">actuation</text>
+<text x="1120" y="688" class="small">feedback</text>
+
+<text x="95" y="840" class="small">Recommended flow: User request → Agent intent resolution → Profile lookup → Safe command generation → Transport → Firmware → Hardware → Telemetry</text>
+</svg>

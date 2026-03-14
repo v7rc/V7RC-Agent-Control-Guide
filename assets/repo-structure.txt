@@ -1,25 +1,67 @@
-V7RC-Agent-Control-Guide/
-├─ README.md
-├─ LICENSE
-├─ .gitignore
-├─ docs/
-│  ├─ overview.md
-│  ├─ protocol-reference.md
-│  ├─ safety-rules.md
-│  ├─ intent-dictionary.md
-│  ├─ integration-openclaw.md
-│  └─ robot-profiles/
-│     ├─ template.md
-│     ├─ mecanum-basic.md
-│     └─ tank-basic.md
-├─ schemas/
-│  └─ robot-profile.schema.json
-├─ profiles/
-│  ├─ mecanum-basic.yaml
-│  └─ tank-basic.yaml
-├─ examples/
-│  ├─ prompt-openclaw-system.md
-│  ├─ command-examples.md
-│  └─ session-example.md
-└─ assets/
-   └─ repo-structure.txt
+.gitignore
+LICENSE
+README.ja.md
+README.md
+README.ms.md
+README.th.md
+README.zh-TW.md
+docs/
+  en/
+    architecture.md
+    integration-openclaw.md
+    intent-dictionary.md
+    overview.md
+    protocol-reference.md
+    safety-rules.md
+    robot-profiles/
+      mecanum-basic.md
+      tank-basic.md
+  zh-TW/
+    architecture.md
+    integration-openclaw.md
+    intent-dictionary.md
+    overview.md
+    protocol-reference.md
+    safety-rules.md
+    robot-profiles/
+      mecanum-basic.md
+      tank-basic.md
+  ja/
+    architecture.md
+    integration-openclaw.md
+    intent-dictionary.md
+    overview.md
+    protocol-reference.md
+    safety-rules.md
+    robot-profiles/
+      mecanum-basic.md
+      tank-basic.md
+  th/
+    architecture.md
+    integration-openclaw.md
+    intent-dictionary.md
+    overview.md
+    protocol-reference.md
+    safety-rules.md
+    robot-profiles/
+      mecanum-basic.md
+      tank-basic.md
+  ms/
+    architecture.md
+    integration-openclaw.md
+    intent-dictionary.md
+    overview.md
+    protocol-reference.md
+    safety-rules.md
+    robot-profiles/
+      mecanum-basic.md
+      tank-basic.md
+profiles/
+  mecanum-basic.yaml
+  tank-basic.yaml
+schemas/
+  robot-profile.schema.json
+examples/
+  command-examples.md
+  prompt-openclaw-system.md
+  session-example.md

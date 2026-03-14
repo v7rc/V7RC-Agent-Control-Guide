@@ -2,38 +2,40 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "V7RC Robot Profile",
   "type": "object",
-  "required": ["profile_name", "profile_version", "robot", "protocol", "safety"],
+  "required": [
+    "profile_name",
+    "profile_version",
+    "robot",
+    "protocol",
+    "safety"
+  ],
   "properties": {
-    "profile_name": { "type": "string" },
-    "profile_version": { "type": "string" },
+    "profile_name": {
+      "type": "string"
+    },
+    "profile_version": {
+      "type": "string"
+    },
     "robot": {
-      "type": "object",
-      "required": ["robot_name", "robot_type", "transport"],
-      "properties": {
-        "robot_name": { "type": "string" },
-        "robot_type": { "type": "string" },
-        "transport": { "type": "string" },
-        "firmware_compatibility": { "type": "string" }
-      }
+      "type": "object"
     },
     "protocol": {
-      "type": "object",
-      "required": ["supported_protocols", "preferred_control_order"],
-      "properties": {
-        "supported_protocols": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "preferred_control_order": {
-          "type": "array",
-          "items": { "type": "string" }
-        }
-      }
+      "type": "object"
     },
-    "motion": { "type": "object" },
-    "led": { "type": "object" },
-    "custom_commands": { "type": "object" },
-    "intents": { "type": "object" },
-    "safety": { "type": "object" }
+    "motion": {
+      "type": "object"
+    },
+    "led": {
+      "type": "object"
+    },
+    "custom_commands": {
+      "type": "object"
+    },
+    "intents": {
+      "type": "object"
+    },
+    "safety": {
+      "type": "object"
+    }
   }
 }
